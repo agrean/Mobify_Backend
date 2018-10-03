@@ -25,7 +25,7 @@ SECRET_KEY = 'bg4e5w!_9s6+15m(bzua+xdce@x&(has_51cog0h441=6@8b$!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Mobify_App',
+    'accounts',
 
     'rest_framework',
 ]
@@ -89,13 +90,13 @@ DATABASES = {
     'mobify_sqlite_user': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
+    }
     # 'mobify_mysql_user':{
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'MobifyDB',
     #     'USER': 'root',
     #     'PASSWORD': '',
-    #     'HOST': 'localhost'
+    #     'HOST': 'localhost',
     #     'PORT': '3306'
     # }
 }

@@ -14,8 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
+from Mobify_App import views
+from accounts import views as accounts_views
+from django.conf.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
+    path('register/', accounts_views.UsersView.as_view()),
+    path('users/', views.users_view),
+
+	path('', views.Payment.as_view()),
+	re_path(r'^(?P<pk>[0-9]+)/$', views.payment_view),
+
+	path('admin/', admin.site.urls),
+
+    path('auth_users/', include('rest_framework.urls')),
 ]
+
+# urlpatterns += [
+#     path('api-auth/', include('rest_framework.urls')),
+# ]
